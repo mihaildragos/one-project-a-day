@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+    margin: 0;
+}
+
+header.header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100px;
+    margin-bottom: 100px;
+    z-index: 9000;
+    background-color: #fff;
+}
+
+.header-menu {
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background-color: darkcyan;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item.open {
+    transform: translate(80px, 50px);
+}
+
+.menu-item.close {
+    transform: translate(-80px, 50px);
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title h1 {
+    text-align: center;
+}
+
+nav.navigation {
+    position: absolute;
+    top: 80vh;
+    left: 1vw;
+    z-index: -1;
+}
+
+.nav-menu {
+    position: absolute;
+    z-index: -1;
+}
+
+.page {
+    transform-origin: left top;
+    transition: 0.7s ease-in;
+    background-color: #fefefe;
+}
+
+.rotated {
+    transform: rotate(-25deg);
+    transition: 0.7s ease-in;
+}
+
+.page.rotated header.header div.header-menu div.menu-item.open {
+    /* transform-origin: center center; */
+    transform: translate(50px, -100px);
+    transition: 0.7s ease-in;
+}
+
+.page.rotated header.header div.header-menu div.menu-item.close {
+    /* transform-origin: center center; */
+    transform: translateY(75px);
+    transition: 0.7s ease-in;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+article {
+    display: block;
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    padding: 50px;
+    /* margin: 50px; */
+}
+
+.article-title {
+    font-size: 1.7rem;
+    margin-bottom: 0;
+}
+
+.article-author {
+    font-size: 1rem;
+    margin-top: 0;
+}
+
+.article-content {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    text-align: justify;
+    text-justify: inter-word;
+    padding-right: 30px;
+}
+
+.article-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}

@@ -1,0 +1,115 @@
+/* Layout */
+
+
+/* Multicolumns and breaks handling */
+
+@media (min-width: 576px) {
+    .container {
+        columns: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        columns: 2;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        columns: 3;
+    }
+}
+
+.gallery-item {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+body {
+    background: #fff;
+    font-family: arial, sans-serif;
+    font-size: 1.2em;
+}
+
+.container {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.gallery-item,
+.gallery-item>img {
+    padding: 5px;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.gallery-item>img {
+    margin: 5px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    object-fit: cover;
+}
+
+h1,
+h2 {
+    margin: 0 0 1em;
+    color: #345;
+    text-align: center;
+    font-family: georgia, serif;
+}
+
+p {
+    text-align: center;
+}
+
+.btn {
+    visibility: collapse;
+    position: absolute;
+    /* left: 10%; */
+    padding: 10px 15px;
+    border: 2px solid #1c2d55;
+    border-radius: 5px;
+    color: #000;
+    width: 80%;
+    text-align: center;
+    line-height: 1.2;
+    color: #1c2d55;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    color: #5b34e8;
+    border-color: #5b34e8;
+}
+
+.btn.cmyk {
+    top: 40px;
+}
+
+.btn.rgb {
+    bottom: 40px;
+}
+
+.gallery-item:hover .btn {
+    visibility: visible;
+}
+
+.gallery-item:hover {
+    background: #fff;
+    /* margin: -5px; */
+    transition: .2s ease-in;
+}
+
+.gallery-item:hover img {
+    opacity: 0.4;
+    /* margin: 0; */
+    transition: .2s ease-in;
+}

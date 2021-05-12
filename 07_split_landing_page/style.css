@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato');
+body {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+
+/* arrange the container to take all page space and didplay flex to view items in row */
+
+.container {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h1.css-text {
+    position: absolute;
+    z-index: 999;
+    color: turquoise;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* positioned the slides relative so we could add an overlay image with the ::before selector.
+centered the content (img and text)
+*** the trick ***
+set a flex-grow of 1 so the elements are shown as equal parts of available space
+*/
+
+.slide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    flex-grow: 1;
+    transition: flex-grow .7s ease;
+}
+
+
+/* *** the trick ***
+when hovered the slide will grow 4/5 ( i.e. 4/(4+1) ) of space
+*/
+
+.slide:hover {
+    flex-grow: 4;
+}
+
+
+/* added an semi-opaque overlay for the text to stand out */
+
+.slide::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+}
+
+
+/* image for the left side (PlayStation) */
+
+.ps {
+    background-image: url("https://cdn.vox-cdn.com/thumbor/Vgy3FfpWvBD32CYZrcNq6itGqnw=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/20034840/ishMfuW.png");
+}
+
+
+/* image for the right side (XBox) */
+
+.xbox {
+    background-image: url("https://media.wired.com/photos/5fa5dc3dba670daaf8e97a8d/master/w_2560%2Cc_limit/games_gear_series-x.jpg");
+}
+
+.slide-title {
+    font-family: 'Lato';
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    z-index: 999;
+    margin: 45px auto;
+}
+
+.buyBtn {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 1000;
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 13px 50px;
+    cursor: pointer;
+}

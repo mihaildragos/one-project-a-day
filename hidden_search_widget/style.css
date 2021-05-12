@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-image: linear-gradient(0, rgb(115, 195, 209), rgb(7, 140, 163))
+}
+
+.container {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    height: 80vh;
+    padding: 0;
+}
+
+.spacer {
+    height: 100px;
+}
+
+.search-box {
+    position: relative;
+    height: 40px;
+    /* transform: translateX(-25px); */
+    display: flex;
+    justify-content: center;
+}
+
+#search {
+    height: 100%;
+    border: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+    border-radius: 4px 0 0 4px;
+    transform: translateX(20px);
+    z-index: -1;
+    visibility: collapse;
+    transition: .3s ease;
+    padding: 0;
+    font-size: 20px;
+}
+
+#search-btn {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    margin: 0;
+    border: 0;
+    border-radius: 4px;
+    z-index: 9999;
+    cursor: pointer;
+    transition: .3s ease;
+    background-color: #fff;
+}
+
+.search-box.active #search-btn {
+    border-radius: 0 4px 4px 0;
+    background-color: #fff;
+}
+
+.search-box.active #search {
+    width: 250px;
+    z-index: 9998;
+    visibility: visible;
+    /* transform: translateX(-3px); */
+}
+
+.search-box.active #search:focus {
+    border: none;
+    background-color: #f9f9f9;
+}
+
+
+/* second variant */
+
+.search {
+    position: relative;
+    height: 50px;
+}
+
+#search-input {
+    background-color: #fff;
+    border: 0;
+    font-size: 18px;
+    padding: 15px;
+    height: 50px;
+    width: 50px;
+    transition: width .3s ease;
+}
+
+.search .btn {
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: transform .3s ease;
+}
+
+.btn:focus,
+#search-input {
+    outline: none;
+}
+
+.search.active #search-input {
+    width: 200px;
+}
+
+.search.active .btn {
+    transform: translateX(198px);
+}

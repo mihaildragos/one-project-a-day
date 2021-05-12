@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+:root {
+    --color-blue: #3498db;
+    --color-gray: #aaa;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-color: #efefef;
+}
+
+.container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.steps-container {
+    display: flex;
+    margin: 7px;
+}
+
+.dot {
+    display: flex;
+    width: auto;
+    height: auto;
+    border: 3px solid var(--color-gray);
+    border-radius: 50%;
+    background: #fff;
+    align-self: center;
+    margin: 0;
+    padding: 3px;
+    align-content: center;
+    background-position-x: 50px;
+    background-position-y: 50px;
+    -webkit-transition: border 0.6s ease-in;
+}
+
+.number {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.dot-bar {
+    height: 4px;
+    min-width: 35px;
+    background: var(--color-gray);
+    border: 1px solid var(--color-gray);
+    align-self: center;
+    -webkit-transition: background 0.6s ease-in;
+}
+
+.buttons-container {
+    margin: 7px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.active {
+    border-color: var(--color-blue);
+    -webkit-transition: border 0.6s ease-in;
+}
+
+.bar-active {
+    background: var(--color-blue);
+    border-color: var(--color-blue);
+    -webkit-transition: background 0.6s ease-in;
+}
+
+
+/* 
+=======================================
+==========     OTHER WAY     ==========
+=======================================
+ */
+
+.progress-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 40vw;
+    margin-bottom: 25px;
+}
+
+.progress-container::before {
+    content: '';
+    background-color: var(--color-gray);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: .4s ease;
+}
+
+.progress {
+    background-color: var(--color-blue);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: .4s ease;
+}
+
+.circle {
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--color-gray);
+    transition: border .4s ease;
+}
+
+.circle.active {
+    border-color: var(--color-blue);
+    color: var(--color-blue);
+}
+
+.btn {
+    background-color: var(--color-blue);
+    color: #fff;
+    border: 0;
+    border-radius: 7px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px 15px
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    background-color: var(--color-gray);
+    color: #888;
+    cursor: not-allowed;
+}
