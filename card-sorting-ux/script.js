@@ -1,12 +1,14 @@
 const categoriesWrapper = document.querySelector('.right');
 const addCategory = document.querySelector('.add');
-
-
+var ceva;
 
 function start() {
   let categoryNames = document.querySelectorAll('h3.cat-name');
   categoryNames.forEach(name => {
     name.addEventListener('dblclick', function (e) {
+      if(e.target.parentNode.children[1].textContent === "Double Click to rename this category"){
+        e.target.parentNode.children[1].remove();
+      }
       var val=this.innerHTML.trim();
       var input=document.createElement("input");
       input.value=val;
