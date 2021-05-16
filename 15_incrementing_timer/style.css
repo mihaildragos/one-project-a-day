@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Atkinson';
+    src: url('../media/fonts/TTF/Atkinson-Hyperlegible-Regular-102.ttf');
+  }
+
+body {
+    font-family: 'Atkinson', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background: radial-gradient(#B5179E, #4895EF);
+    color: #fff;
+}
+
+h1 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+
+.container {
+    display: flex;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 150px;
+    min-width: 100px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.card i {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card .counter {
+    font-size: 2em;
+    margin: 0 auto;
+    line-height: 1;
+}
+
+
+.card .desc {
+    font-size: .6em;
+    margin: 0 auto;
+}
