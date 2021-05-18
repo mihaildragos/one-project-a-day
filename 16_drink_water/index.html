@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <title>Drink Water - 50 Projects in 50 Days pure HTML/CSS/JS</title>
+</head>
+
+<body>
+    <h1>Drink Water</h1>
+
+    <div class="container">
+        <div class="goal">
+            <h3>Goal: <span class="goal-number">2</span> Litres</h3>
+            <div class="goal-cup cup">
+                <div class="remaining">
+                    <h3><span class="goal-remaining">2</span>L</h3>
+                    <p>Remaining</p>
+                </div>
+                <div class="goal-accomplished hide">
+                    <h2> <span>%</span></h2>
+                </div>
+            </div>
+            <div class="reset">
+                <i class="fas fa-undo"></i><br>
+                <p>Reset</p>
+            </div>
+        </div>
+        <div class="cups">
+            <h2>How much water have you drank</h2>
+            <div class="cups-container">
+                <div id="ml250" class="cup-drank cup">
+                    <p class="cup-text">250<br>ml</p>
+                    <p class="cup-number hide">X <span></span></p>
+                </div>
+                <div id="ml200" class="cup-drank cup">
+                    <p class="cup-text">200<br>ml</p>
+                    <p class="cup-number hide"><span>x</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

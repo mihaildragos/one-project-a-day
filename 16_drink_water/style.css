@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro&family=Raleway:wght@300;400;500&display=swap');
+body {
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-color: #1084c7;
+    color: #fff;
+}
+
+h1 {
+    /* position: absolute; */
+    top: 30px;
+    right: 0;
+    left: 0;
+    text-align: center;
+}
+
+.container {
+    min-width: 400px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.goal {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cup {
+    position: relative;
+    border: 3px solid #3B28CC;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #fff;
+    color: #3B28CC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.cup::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.goal-cup {
+    overflow: hidden;
+    position: relative;
+    width: 170px;
+    height: 340px;
+}
+
+.remaining {
+    text-align: center;
+    height: 100%;
+    z-index: 99;
+}
+
+.remaining p {
+    margin-top: 3px;
+}
+
+.remaining h3 {
+    margin-bottom: 3px;
+    font-size: 1.7rem;
+}
+
+
+.goal-cup .goal-accomplished {
+    background-color: #84c4e9;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height .7s ease-out;
+}
+
+.goal-accomplished h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.cups {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cups-container {
+    width: 230px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+
+
+    border-bottom: 7px solid white;
+}
+
+
+.cup-drank {
+    position: relative;
+    width: 60px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#ml200 {
+    width: 55px;
+    height: 90px;
+}
+
+.cup-drank::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 999;
+}
+
+.cup-drank::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    background-color: #84c4e9;
+    transition: height .5s cubic-bezier(0, 0.3, .7, .9);
+}
+
+.cup:hover.cup-drank::before {
+    height: 100%;
+}
+
+.cup .cup-text {
+    text-align: center;
+    font-size: 1.3em;
+    z-index: 99;
+}
+
+.cup-number {
+    text-align: center;
+    font-size: 1em;
+    color: #fff;
+    position: absolute;
+    top: -40px;
+    z-index: 99;
+}
+
+.reset {
+    position: absolute;
+    right: 0;
+    left: 80%;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reset i {
+    font-size: 1.5em;
+
+}
+
+
+.hide {
+    visibility: hidden;
+}
+
+
