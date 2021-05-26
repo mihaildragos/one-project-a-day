@@ -1,17 +1,26 @@
-const API_URL = 'https://api.themoviedb.org/4/discover/movie?sort_by=popularity.desc&api_key=1e2104e70511b854914f57617379799c';
+const TRENDING_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=1e2104e70511b854914f57617379799c&sort=popularity.desc';
+
 const IMG_URL_BASE = 'https://image.tmdb.org/t/p/w500';
 
+const searchBox = document.querySelector('#search');
 const modelCard = document.querySelector('.card.model');
 const moviesList = document.querySelector('.movies-list');
+var tOut;
+
+function fetchMovies(term) {
+    let url = TRENDING_URL;
+    if(term){
+        url = `https://api.themoviedb.org/3/search/movie?api_key=1e2104e70511b854914f57617379799c&language=en-US&query=${encodeURI(term)}&page=1&include_adult=false`;
+        console.log(url);
+    }
+    moviesList.innerHTML = "<p></p>";
 
 
-fetch(API_URL)
+    fetch(url)
     .then(res => res.json())
     .then(data => {
         data.results.forEach(movie => {
-
             console.log(movie);
-
             let card = modelCard.cloneNode(true);
             card.classList.remove('model');
             let cardOverviewDesc = card.children[0].children[1];
@@ -19,19 +28,25 @@ fetch(API_URL)
             let cardRating = card.children[2].children[0];
             let cardTitle = card.children[3].children[0];
 
-            cardImage.src = IMG_URL_BASE + movie.backdrop_path;
+            cardImage.src = IMG_URL_BASE + movie.poster_path;
             cardTitle.innerText = movie.original_title;
             cardRating.innerText = movie.vote_average;
-            // console.log(cardRating.style.color);
-            cardRating.style.color = getColour('#ff3300', '#55ff55', 1, 10, movie.vote_average);
+            cardRating.style.color = getColour("#FF5555", "#55ff55", 1, 10, movie.vote_average);
             cardOverviewDesc.innerText = movie.overview;
-
-            // console.log(movie);
 
             moviesList.appendChild(card);
         });
     });
+}
 
+fetchMovies();
+
+searchBox.addEventListener('keyup', (event) => {
+    clearTimeout(tOut);
+    tOut = setTimeout(() => {
+        fetchMovies(event.target.value);
+    }, 700);
+})
 
 
 function hexToRgb(hex) {
@@ -43,14 +58,14 @@ function hexToRgb(hex) {
     } : null;
 }
 
-function map(value, fromSource, toSource, fromTarget, toTarget) {
+function mapValues(value, fromSource, toSource, fromTarget, toTarget) {
     return (value - fromSource) / (toSource - fromSource) * (toTarget - fromTarget) + fromTarget;
 }
 
 function getColour(startColour, endColour, min, max, value) {
     var startRGB = hexToRgb(startColour);
     var endRGB = hexToRgb(endColour);
-    var percentFade = map(value, min, max, 0, 1);
+    var percentFade = mapValues(value, min, max, 0, 1);
 
     var diffRed = endRGB.r - startRGB.r;
     var diffGreen = endRGB.g - startRGB.g;
