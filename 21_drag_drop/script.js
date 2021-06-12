@@ -4,59 +4,56 @@ window.addEventListener('DOMContentLoaded', () => {
     const dropZones = document.querySelectorAll('.drop-zone')
 
     // Add the ondragstart event listener
-    elements.forEach(element => {
+    elements.forEach((element, i) => {
         element.draggable = true;
+        element.dataset.value = i;
         element.addEventListener("dragstart", dragStartHandler)
         element.addEventListener("dragend", dragEndHandler)
     })
-    
+
     dropZones.forEach(zone => {
         zone.addEventListener("dragenter", dragEnterHandler);
-        zone.addEventListener("dragover", dragOverHandler)
+        zone.addEventListener("dragover", dragOverHandler);
         zone.addEventListener("dragleave", dragLeaveHandler);
         zone.addEventListener("drop", dropHandler);
-
-
     })
+
+
+
+    function dragStartHandler(ev) {
+        this.classList.toggle('hold');
+        setTimeout(() => {
+            this.classList.toggle('hold');
+        }, 0);
+
+        // Add the target element's id to the data transfer object
+        ev.dataTransfer.setData('text', this.attributes['data-value'].value);
+        ev.dataTransfer.effectAllowed = "move";
+    }
+
+    function dragEndHandler(ev) {
+        ev.preventDefault();
+    }
+
+    function dragOverHandler(ev) {
+        ev.preventDefault();
+    }
+
+    function dragEnterHandler(ev) {
+        ev.preventDefault();
+        this.classList.add('hovered');
+        // this.dataTransfer.dropEffect = "move";
+    }
+    
+    function dragLeaveHandler(ev) {
+        this.classList.remove('hovered');
+        // this.dataTransfer.dropEffect = "move";
+    }
+
+    function dropHandler(ev) {
+        ev.preventDefault();
+        if (this.classList.contains('drop-zone')) {
+            this.append(elements[ev.dataTransfer.getData("text")]);
+        }
+    }
 });
-
-
-function dragStartHandler(ev) {
-    console.log('dragStartHandler');
-    // ev.preventDefault();
-    // ev.dataTransfer.setData("text/html", ev.target.id);
-    // ev.dataTransfer.effectAllowed = "move";
-}
-
-function dragEndHandler(ev) {
-    console.log('dragEndHandler');
-    // ev.preventDefault();
-
-}
-
-function dragOverHandler(ev) {
-    console.log('dragOverHandler');
-    // ev.preventDefault();
-    // ev.dataTransfer.dropEffect = "move";
-}
-
-function dragEnterHandler(ev) {
-    console.log('dragEnterHandler');
-    // ev.preventDefault();
-    // ev.dataTransfer.dropEffect = "move";
-}
-
-function dragLeaveHandler(ev) {
-    console.log('dragLeaveHandler');
-    // ev.preventDefault();
-    // ev.dataTransfer.dropEffect = "move";
-}
-
-function dropHandler(ev) {
-    console.error('dropHandler');
-    // ev.preventDefault();
-    // // Get the id of the target and add the moved element to the target's DOM
-    // const data = ev.dataTransfer.getData("text/html");
-    // ev.target.appendChild(document.getElementById(data));
-}
-

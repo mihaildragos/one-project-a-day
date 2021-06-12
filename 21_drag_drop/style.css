@@ -19,13 +19,30 @@ body {
 }
 
 .drop-zone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 80px;
     height: 80px;
     border: 1px solid black;
 }
 
 .drag-item {
-    width: 40px;
-    height: 40px;
-    border: 1px solid red;
+    background-image: url(./image.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 78px;
+    height: 78px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* border: 1px solid red; */
+}
+
+.hold {
+    border: 5px solid red;
+}
+
+.hovered {
+    background-color: #333;
+    border-color: #fff;
+    border-style: dashed;
 }
