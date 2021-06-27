@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 1.3em;
+}
+
+
+.slider-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    transition: top .7s ease-in;
+}
+
+.slide-left {
+    background-color: #ec3;
+    position: absolute;
+    width: 35%;
+}
+
+.left-item {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-item-title {
+    color: #ffffffb0;
+    margin-left: -30px;
+    margin-bottom: 0;
+}
+
+.left-item-text {
+    color: #ffffffb0;
+    margin-left: 30px;
+
+}
+
+.slide-right {
+    position: absolute;
+    width: 65%;
+    background-color: #1aec1a;
+    margin-left: 35%;
+}
+
+.right-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.right-item > .right-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.action-btns {
+    overflow: hidden;
+    position: absolute;
+    margin-left: calc(35% - 25px);
+    margin-top: 50vh;
+}
+
+.action-btns > i.fas {
+    cursor: pointer;
+}
+
