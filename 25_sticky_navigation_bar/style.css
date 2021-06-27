@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-columns:  1fr;
+    grid-template-rows:  auto auto auto;
+    height: 100vh;
+    /* overflow: hidden; */
+    margin: 0;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 1fr;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100vh auto;
+
+}
